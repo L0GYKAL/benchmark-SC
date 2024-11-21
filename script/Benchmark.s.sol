@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import {Script, console} from "forge-std/Script.sol";
 import {Benchmark} from "../src/Benchmark.sol";
 
-contract CounterScript is Script {
+contract BenchmarkScript is Script {
     Benchmark bench;
     uint arrayLength = 4;
 
@@ -17,7 +17,5 @@ contract CounterScript is Script {
         for (uint i; i<arrayLength; i++){
             bench.benchmark(i*i);
         }
-        // bench.benchmark();
-        //TODO: faire des tests pour verifier l'average
     }
 }
