@@ -6,12 +6,17 @@ import {Benchmark} from "../src/Benchmark.sol";
 
 contract CounterScript is Script {
     Benchmark bench;
+    uint arrayLength = 4;
+
     function setUp() public {
-        bench = new Benchmark(4);
+        bench = new Benchmark(arrayLength);
     }
 
     function run() public {
         vm.startBroadcast();
+        for (uint i; i<arrayLength; i++){
+            bench.benchmark(i*i);
+        }
         // bench.benchmark();
         //TODO: faire des tests pour verifier l'average
     }

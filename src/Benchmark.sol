@@ -2,8 +2,8 @@
 pragma solidity ^0.8.13;
 
 contract Benchmark {
-    uint256 sum;
-    uint256 cursor;
+    uint256 public sum;
+    uint256 public cursor;
     uint256[] public array;
 
     enum Action{
