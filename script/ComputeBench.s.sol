@@ -2,22 +2,24 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import {Benchmark} from "../src/Benchmark.sol";
+import {ComputeBench} from "../src/ComputeBench.sol";
 
-contract BenchmarkScript is Script {
-    Benchmark bench;
-    uint arrayLength = 4;
+contract ComputeBenchScript is Script {
+    uint256 value = 10_000;
+    ComputeBench cb;
 
     function setUp() public {
         vm.startBroadcast();
-        bench = new Benchmark(arrayLength);
+        cb = new ComputeBench();
         vm.stopBroadcast();
     }
 
     function run() public {
         vm.startBroadcast();
-        for (uint i; i<arrayLength; i++){
-            bench.benchmark(i*i);
-        }
+        benchmark();
+    }
+    
+    function benchmark() private {
+        cb.benchmark(value);
     }
 }

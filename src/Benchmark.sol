@@ -6,11 +6,6 @@ contract Benchmark {
     uint256 public cursor;
     uint256[] public array;
 
-    enum Action{
-        SQUARE,
-        DIVIDE_BY_TWO,
-        ZERO
-    }
     constructor(uint256 arrayLength){
         array = new uint256[](arrayLength);
     }
@@ -21,6 +16,7 @@ contract Benchmark {
         sum += array[cursor];
         cursor++;
         if (cursor == array.length) cursor =0;
+        //TODO: should the sum be reset or something?
         return sum / array.length;
     }
 }
