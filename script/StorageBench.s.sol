@@ -9,6 +9,7 @@ contract StorageBenchScript is Script {
     StorageBench sb;
 
     function setUp() public {
+        vm.setNonce(15);
         vm.startBroadcast();
         sb = new StorageBench(arrayLength);
         vm.stopBroadcast();
